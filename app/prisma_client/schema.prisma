@@ -1,0 +1,16 @@
+generator client {
+  provider = "prisma-client-py"
+  output   = "../app/prisma_client"
+}
+
+datasource db {
+  provider = "postgresql"
+  url      = env("DATABASE_URL")
+}
+
+model Ticket {
+  id        Int      @id @default(autoincrement())
+  titulo    String
+  estado    String
+  createdAt DateTime @default(now())
+}
